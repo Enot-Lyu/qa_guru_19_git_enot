@@ -1,0 +1,28 @@
+plugins {                         //библиотека java - какой язык мы используем  файл build.gradle - сборщик, конструктор
+    id 'java-library'
+}
+
+repositories {         //конкретный сайт под капотом зашит тут прописаны зависимости
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'junit:junit:4.13.1'
+    implementation 'junit:junit:4.13.1'
+    implementation 'junit:junit:4.13.1'
+    implementation 'junit:junit:4.13.1'
+//библиотеки, фраемворки которые будем использовать (зависимости, сторонние вещи)
+    testImplementation(
+            "com.codeborne:selenide:6.12.4",
+            "org.junit.jupiter:junit-jupiter:5.9.2",
+            "org.slf4j:slf4j-simple:2.0.5")
+
+}
+
+tasks.withType(JavaCompile) {     //спецефические вещи на вроде работы с кирилицей
+    options.encoding = 'UTF-8'
+}
+
+test {                           //выбор пятого JUnit
+    useJUnitPlatform()
+}
